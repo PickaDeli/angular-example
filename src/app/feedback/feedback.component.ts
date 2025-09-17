@@ -10,19 +10,18 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-feedback',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './feedback.component.html',
-  styleUrl: './feedback.component.css'
+    selector: 'app-feedback',
+    imports: [
+        CommonModule,
+        FormsModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './feedback.component.html',
+    styleUrl: './feedback.component.css'
 })
 export class FeedbackComponent {
   headerText: string = "Give feedback";
