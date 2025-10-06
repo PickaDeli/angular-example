@@ -34,6 +34,8 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
+  //Test 1
   it('should navigate to Feedback', () => {
     component.showFeedbackPage();
 
