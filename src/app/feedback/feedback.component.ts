@@ -10,18 +10,18 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-feedback',
-    imports: [
-        CommonModule,
-        FormsModule,
-        MatButtonModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-    ],
-    templateUrl: './feedback.component.html',
-    styleUrl: './feedback.component.css'
+  selector: 'app-feedback',
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  ],
+  templateUrl: './feedback.component.html',
+  styleUrl: './feedback.component.css'
 })
 export class FeedbackComponent {
   headerText: string = "Give feedback";
@@ -43,6 +43,8 @@ export class FeedbackComponent {
   cancel() {
     this.router.navigate(['home']);
   }
+
+  //TO #7DO A Unit test to test that OnSubmit resets the form
 
   onSubmit() {
     this.fbForm.reset();
