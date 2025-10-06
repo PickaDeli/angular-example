@@ -27,7 +27,7 @@ describe('FeedbackComponent', () => {
     fixture = TestBed.createComponent(FeedbackComponent);
     component = fixture.componentInstance;
 
-    //Testi 2
+
     router = TestBed.inject(Router);
     routerSpy = spyOn(router, 'navigate');
 

@@ -1,0 +1,67 @@
+Testi 1
+
+  it('should navigate to Feedback', () => {
+    component.showFeedbackPage();
+
+    expect(routerSpy).toHaveBeenCalledWith(['feedback']);
+  });
+
+Tässä testataan, toimiiko reititys etusivulta palautesivulle. Testiin liittyy muutujat router ja routerSpy, jotka on määritelty aiemmin.
+
+***********************************************************************
+Testi 2
+
+ it('should navigate to Homepage', () => {
+    component.cancel();
+
+    expect(routerSpy).toHaveBeenCalledWith(['home']);
+  });
+
+Tässä testataan reititys toisin päin, pääseekö palautesivulta takaisin etusivulle.
+
+***********************************************************************
+Testi 3
+
+  it('should reset the form and clear all errors on submit', () => {
+    component.onSubmit();
+
+    expect(component.fbForm.pristine).toBeTrue();
+    expect(component.fbForm.value).toEqual({
+      title: null,
+      description: null,
+      name: null,
+      email: null,
+      phone: null,
+      termsAndConditions: null
+    });
+
+    Object.keys(component.fbForm.controls).forEach(controlName => {
+      expect(component.fbForm.controls[controlName].errors).toBeNull();
+    });
+
+  });
+
+Tässä testissä suoritetaan ensin onSubmit() -metodi ja sen nollataan kaikki lomakkeen arvot ja tarkistetaan, että ne varmasti ovat tyhjiä.
+
+***********************************************************************
+Testi 4
+
+  it('should have correct header text', () => {
+    expect(component.headerText).toBe('Give feedback');
+  });
+
+Tässä testataan palautesivun headeria, koska se on tehty databindingilla ja voi vaikka vahingossa muuttua koodia editoitaessa.
+
+***********************************************************************
+Testi 5
+
+  it('should return correct form controls via getters', () => {
+    expect(component.title).toBe(component.fbForm.get('title'));
+    expect(component.email).toBe(component.fbForm.get('email'));
+    expect(component.name).toBe(component.fbForm.get('name'));
+    expect(component.description).toBe(component.fbForm.get('description'));
+    expect(component.phone).toBe(component.fbForm.get('phone'));
+    expect(component.termsAndConditions).toBe(component.fbForm.get('termsAndConditions'));
+  });
+
+Tässä testataan, että komponentin getterit palauttavat oikeat FormControl -objektit.
