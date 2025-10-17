@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -15,10 +15,11 @@ import { MatListModule } from '@angular/material/list';
 export class HomeComponent {
   headerText = 'Testing Angular Applications';
 
-  constructor(public router: Router) { }
+  public router = inject(Router);
+  // constructor(public router: Router) { }
 
-  ngOnInit(): void {
-  }
+  // ngOnInit(): void {
+  // }
 
   //TODO #6
 
