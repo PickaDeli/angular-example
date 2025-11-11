@@ -32,7 +32,7 @@ jobs:
         run: npm test --if-present
 
       - name: Build Docker Image
-        run: docker build -t angular-example:latest
+        run: docker build -t angular-example:latest .
 
       - name: Run container for smoke test
         run: |
