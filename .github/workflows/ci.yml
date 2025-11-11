@@ -24,3 +24,9 @@ jobs:
 
       - name: Build Angular project
         run: npm run build --if-present
+
+      - name: Install Playwirght browsers
+        run: npx playright install --with-deps chromium
+
+      - name: Run tests
+        run: npm test --if-present
