@@ -21,18 +21,26 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
   templateUrl: './feedback.component.html',
-  styleUrl: './feedback.component.css'
+  styleUrl: './feedback.component.css',
 })
 export class FeedbackComponent {
-  headerText = "Give feedback";
+  headerText = 'Give feedback';
 
   fbForm: FormGroup = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z ]*$')]),
+    title: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.pattern('^[a-zA-Z ]*$'),
+    ]),
     description: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z ]*$')]),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.pattern('^[a-zA-Z ]*$'),
+    ]),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
-    termsAndConditions: new FormControl('')
+    termsAndConditions: new FormControl(''),
   });
 
   public router = inject(Router);

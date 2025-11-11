@@ -13,20 +13,16 @@ describe('FeedbackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [
-        provideRouter([{ path: 'feedback', component: FeedbackComponent }])
-      ],
+      providers: [provideRouter([{ path: 'feedback', component: FeedbackComponent }])],
       imports: [FeedbackComponent, BrowserAnimationsModule],
       /*schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
         NO_ERRORS_SCHEMA
       ]*/
-    })
-      .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FeedbackComponent);
     component = fixture.componentInstance;
-
 
     router = TestBed.inject(Router);
     routerSpy = spyOn(router, 'navigate');
@@ -39,7 +35,6 @@ describe('FeedbackComponent', () => {
 
     fixture.detectChanges();
   });
-
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -63,13 +58,12 @@ describe('FeedbackComponent', () => {
       name: null,
       email: null,
       phone: null,
-      termsAndConditions: null
+      termsAndConditions: null,
     });
 
-    Object.keys(component.fbForm.controls).forEach(controlName => {
+    Object.keys(component.fbForm.controls).forEach((controlName) => {
       expect(component.fbForm.controls[controlName].errors).toBeNull();
     });
-
   });
 
   //Testi 4
@@ -86,5 +80,4 @@ describe('FeedbackComponent', () => {
     expect(component.phone).toBe(component.fbForm.get('phone'));
     expect(component.termsAndConditions).toBe(component.fbForm.get('termsAndConditions'));
   });
-
 });

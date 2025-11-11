@@ -11,15 +11,12 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [
-        provideRouter([{ path: 'home', component: HomeComponent }]),
-      ],
+      providers: [provideRouter([{ path: 'home', component: HomeComponent }])],
       imports: [HomeComponent],
       /*schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],*/
-    })
-      .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
@@ -34,12 +31,10 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
   //Test 1
   it('should navigate to Feedback', () => {
     component.showFeedbackPage();
 
     expect(routerSpy).toHaveBeenCalledWith(['feedback']);
   });
-
 });
