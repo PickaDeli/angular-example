@@ -37,7 +37,7 @@ jobs:
       - name: Run container for smoke test
         run: |
           docker run -d --name app -p 8080:80 angular-example:latest
-          sleep 10
+          sleep 15
           curl -f http://localhost:8080
           docker stop angular-smoke
           docker rm angular-smoke
