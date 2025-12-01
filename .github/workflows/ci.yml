@@ -43,11 +43,13 @@ jobs:
           docker build -t ghcr.io/pickadeli/angular-example:latest .
           docker push ghcr.io/pickadeli/angular-example:latest
 
-      - name: Run container for smoke test
+      - name: Smoke test Docker image
         run: |
-          docker run -d --name app -p 8080:80 angular-example
+          docker run -d --name app -p 8080:80 ghcr.io/pickadeli/angular-example:latest
           sleep 10
           curl -f http://localhost:8080
+          docker stop app
+          docker rm app
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
