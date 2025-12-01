@@ -3,8 +3,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run build
-
+RUN npm run build --prod
 FROM nginx:alpine
-COPY --from=build /app/dist /usr/nginx/html
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=build /app/dist/angular-example /usr/share/nginx/html
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
