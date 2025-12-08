@@ -49,9 +49,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
-      # - name: angular-example
-      #   run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-
       - name: Build and push container image to registry
         uses: docker/build-push-action@v4
         with:
@@ -59,34 +56,10 @@ jobs:
           tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
           file: ./Dockerfile
 
-      # - name: Run container for smoke test
-      #   run: |
-      #     docker run -d --name app -p 8080:80 angular-example:latest
-      #     sleep 15
-      #     curl -f http://localhost:8080
-      #     docker stop angular-smoke
-      #     docker rm angular-smoke
-
-      # - name: Deploy to Azure Web App
-      #   uses: azure/webapps-deploy@v3
-      #   with:
-      #     app-name: ${{ env.AZURE_WEBAPP_NAME }}
-      #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-      #     package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/dist/angular-example/browser
-
   deploy:
     runs-on: ubuntu-latest
-
     needs: build
-
-    # environment:
-    #   name: 'production'
-    #   url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
     steps:
-      # - name: angular-example
-      #   run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
