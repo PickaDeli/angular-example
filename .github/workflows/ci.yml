@@ -17,7 +17,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    needs: test
 
     steps:
       - name: Check out code
@@ -53,6 +52,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Check out code
         uses: actions/checkout@v5
